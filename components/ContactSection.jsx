@@ -1,7 +1,10 @@
-const channels = [
-  { href: 'mailto:joseph.hangarter@yahoo.com', label: 'Email', value: 'joseph.hangarter@yahoo.com' },
-  { href: 'https://www.linkedin.com/in/joseph-hangarter/', label: 'LinkedIn', value: 'joseph-hangarter' },
-  { href: '/resume.pdf', label: 'Resume', value: 'Open PDF' },
+import { site } from '@/lib/content';
+
+const contactLinks = [
+  { href: `mailto:${site.email}`, label: 'Email Joseph' },
+  { href: site.linkedinUrl, label: 'View LinkedIn' },
+  { href: site.githubUrl, label: 'View GitHub' },
+  { href: site.resumeUrl, label: 'Download Resume' },
 ];
 
 export default function ContactSection() {
@@ -12,38 +15,26 @@ export default function ContactSection() {
           <div className="relative overflow-hidden bg-slate-950 p-8 text-white sm:p-12">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.24),transparent_28%),radial-gradient(circle_at_90%_90%,rgba(168,85,247,0.22),transparent_30%)]" />
             <div className="relative">
-              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">Next Step</p>
-              <h2 className="text-4xl font-black tracking-tight">Looking for a frontend developer who sweats the interface?</h2>
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">Contact</p>
+              <h2 className="text-4xl font-black tracking-tight">Building a web product or growing an engineering team?</h2>
               <p className="mt-5 leading-8 text-slate-300">
-                I&apos;m interested in frontend roles where performance, design quality, and practical engineering judgment matter.
+                I&apos;m open to full-stack and frontend-focused opportunities where product quality, practical engineering, and clear ownership matter.
               </p>
-              <a
-                href="mailto:joseph.hangarter@yahoo.com"
-                className="mt-8 inline-flex rounded-lg bg-cyan-300 px-6 py-3 font-semibold text-slate-950 transition duration-300 hover:-translate-y-0.5 hover:bg-white"
-              >
-                Get in Touch
-              </a>
+              <p className="mt-4 text-sm font-semibold text-slate-400">{site.location} - open to remote and Seattle-area opportunities</p>
             </div>
           </div>
 
           <div className="p-8 sm:p-12">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-sm font-semibold text-emerald-700">
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              Open to opportunities
-            </div>
             <div className="space-y-3">
-              {channels.map((channel) => (
+              {contactLinks.map((link) => (
                 <a
-                  key={channel.label}
-                  href={channel.href}
-                  target={channel.href.startsWith('http') || channel.href.endsWith('.pdf') ? '_blank' : undefined}
-                  rel={channel.href.startsWith('http') || channel.href.endsWith('.pdf') ? 'noreferrer' : undefined}
-                  className="group flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 p-4 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-cyan-50"
+                  key={link.label}
+                  href={link.href}
+                  target={link.href.startsWith('http') || link.href.endsWith('.pdf') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') || link.href.endsWith('.pdf') ? 'noreferrer' : undefined}
+                  className="group flex items-center justify-between rounded-xl border border-slate-200 bg-slate-50 p-4 font-semibold text-slate-950 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-200 hover:bg-cyan-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
                 >
-                  <span>
-                    <span className="block text-sm font-bold text-slate-950">{channel.label}</span>
-                    <span className="mt-1 block text-sm text-slate-600">{channel.value}</span>
-                  </span>
+                  {link.label}
                   <svg className="h-5 w-5 text-slate-400 transition group-hover:translate-x-1 group-hover:text-cyan-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7 7 7-7 7" />
                   </svg>

@@ -1,8 +1,4 @@
-'use client';
-
-import { useState } from 'react';
 import { site, socialLinks } from '@/lib/content';
-import SmoothAnchor from '@/components/SmoothAnchor';
 
 const links = [
   { href: '/#projects', label: 'Work' },
@@ -44,37 +40,25 @@ function SocialIcon({ name }) {
 }
 
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function closeMenu() {
-    setIsOpen(false);
-  }
-
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/86 shadow-sm backdrop-blur-xl">
       <nav className="mx-auto flex min-h-14 max-w-6xl items-center justify-between gap-4 px-4 text-sm font-semibold text-slate-200" aria-label="Primary navigation">
-        <SmoothAnchor href="/#joseph" className="rounded-md text-white transition hover:text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+        <a href="/#joseph" className="rounded-md text-white transition hover:text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
           Joseph Hangarter
-        </SmoothAnchor>
+        </a>
 
         <div className="hidden items-center gap-5 lg:flex">
-          {links.map((link) =>
-            link.external ? (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-md transition-colors hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <SmoothAnchor key={link.href} href={link.href} className="rounded-md transition-colors hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
-                {link.label}
-              </SmoothAnchor>
-            ),
-          )}
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noreferrer' : undefined}
+              className="rounded-md transition-colors hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
 
         <div className="hidden items-center gap-2 md:flex">
@@ -92,68 +76,49 @@ export default function Navigation() {
           ))}
         </div>
 
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] text-white transition hover:border-cyan-300/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 lg:hidden"
-          aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-controls="mobile-navigation"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen((current) => !current)}
-        >
-          <svg className={`h-5 w-5 ${isOpen ? 'hidden' : 'block'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-          <svg className={`h-5 w-5 ${isOpen ? 'block' : 'hidden'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18 18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </nav>
+        <details className="group relative lg:hidden" data-mobile-menu>
+          <summary className="inline-flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-lg border border-white/15 bg-white/[0.04] text-white transition hover:border-cyan-300/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+            <span className="sr-only">Toggle navigation menu</span>
+            <svg className="h-5 w-5 group-open:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg className="hidden h-5 w-5 group-open:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </summary>
 
-      {isOpen ? (
-        <div id="mobile-navigation" className="border-t border-white/10 bg-slate-950/96 px-4 py-4 shadow-2xl shadow-slate-950/50 backdrop-blur-xl lg:hidden">
-          <div className="mx-auto grid max-w-6xl gap-2">
-            {links.map((link) =>
-              link.external ? (
+          <div id="mobile-navigation" className="absolute right-0 top-full mt-2 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-white/10 bg-slate-950/96 p-3 shadow-2xl shadow-slate-950/50 backdrop-blur-xl">
+            <div className="grid gap-2">
+              {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={closeMenu}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noreferrer' : undefined}
                   className="rounded-lg px-3 py-3 text-slate-100 transition hover:bg-white/10 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
                 >
-                  {link.label}
-                </a>
-              ) : (
-                <SmoothAnchor
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-lg px-3 py-3 text-slate-100 transition hover:bg-white/10 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
-                  onNavigate={closeMenu}
-                >
-                  {link.label}
-                </SmoothAnchor>
-              ),
-            )}
-
-            <div className="mt-2 flex flex-wrap gap-2 border-t border-white/10 pt-4">
-              {compactSocialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-                  onClick={closeMenu}
-                  className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 text-sm font-bold text-slate-100 transition hover:border-cyan-300/50 hover:text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
-                >
-                  <SocialIcon name={link.icon} />
                   {link.label}
                 </a>
               ))}
+
+              <div className="mt-2 flex flex-wrap gap-2 border-t border-white/10 pt-4">
+                {compactSocialLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.href.startsWith('http') ? '_blank' : undefined}
+                    rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
+                    className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] px-3 text-sm font-bold text-slate-100 transition hover:border-cyan-300/50 hover:text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+                  >
+                    <SocialIcon name={link.icon} />
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      ) : null}
+        </details>
+      </nav>
     </header>
   );
 }

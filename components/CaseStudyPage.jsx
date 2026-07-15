@@ -1,5 +1,4 @@
 import ProjectVisual from '@/components/ProjectVisual';
-import SmoothAnchor from '@/components/SmoothAnchor';
 import { site } from '@/lib/content';
 
 const accentStyles = {
@@ -65,9 +64,9 @@ export default function CaseStudyPage({ project }) {
       <section className="relative overflow-hidden px-4 py-16">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_8%,rgba(45,212,191,0.12),transparent_28rem),radial-gradient(circle_at_85%_18%,rgba(139,92,246,0.13),transparent_30rem)]" />
         <div className="relative mx-auto max-w-6xl">
-          <SmoothAnchor href="/#projects" className="inline-flex rounded-xl border border-white/15 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-200 transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+          <a href="/#projects" className="inline-flex rounded-xl border border-white/15 bg-white/[0.04] px-4 py-2 text-sm font-bold text-slate-200 transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
             Back to work
-          </SmoothAnchor>
+          </a>
 
           <div className="mt-10 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>

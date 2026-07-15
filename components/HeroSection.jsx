@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { proofPoints, site } from '@/lib/content';
+import SmoothAnchor from '@/components/SmoothAnchor';
 
 const socialLinks = [
   { label: 'GitHub', href: site.githubUrl },
@@ -29,12 +30,12 @@ export default function HeroSection() {
             </p>
 
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <a href="#work" className="group inline-flex w-full items-center justify-center rounded-lg bg-cyan-300 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 sm:w-auto">
+              <SmoothAnchor href="#work" className="group inline-flex w-full items-center justify-center rounded-lg bg-cyan-300 px-6 py-3 font-semibold text-slate-950 shadow-lg shadow-cyan-500/20 transition duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 sm:w-auto">
                 View My Work
                 <svg className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14m-7-7 7 7-7 7" />
                 </svg>
-              </a>
+              </SmoothAnchor>
               <a href={site.resumeUrl} target="_blank" rel="noreferrer" className="inline-flex w-full items-center justify-center rounded-lg border border-white/15 bg-white/10 px-6 py-3 font-semibold text-white backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-cyan-200/60 hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 sm:w-auto">
                 Download Resume
               </a>

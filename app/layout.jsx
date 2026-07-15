@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://josephhangarter.com';
 
@@ -80,6 +81,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-900`}
       >
+        <SmoothScroll />
         <Navigation/>
         {children}
       </body>

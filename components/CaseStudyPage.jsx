@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import SmoothAnchor from '@/components/SmoothAnchor';
 
 function Section({ title, children }) {
   return (
@@ -29,9 +29,9 @@ export default function CaseStudyPage({ project }) {
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <section className="bg-slate-950 px-4 py-16 text-white">
         <div className="mx-auto max-w-6xl">
-          <Link href="/#work" className="inline-flex rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+          <SmoothAnchor href="/#work" className="inline-flex rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
             Back to work
-          </Link>
+          </SmoothAnchor>
           <div className="mt-10 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
               <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-cyan-300">{project.category}</p>
@@ -62,8 +62,8 @@ export default function CaseStudyPage({ project }) {
                 ) : null}
               </div>
             </div>
-            <div className="relative min-h-72 overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl shadow-cyan-950/30 sm:min-h-96">
-              <Image src={project.heroImage} alt={project.imageAlt} fill priority sizes="(max-width: 1024px) 100vw, 48vw" className="object-cover" />
+            <div className="relative aspect-[16/9] overflow-hidden rounded-2xl border border-white/10 bg-slate-100 shadow-2xl shadow-cyan-950/30">
+              <Image src={project.heroImage} alt={project.imageAlt} fill priority sizes="(max-width: 1024px) 100vw, 48vw" className="object-contain p-3" />
             </div>
           </div>
         </div>

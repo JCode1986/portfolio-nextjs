@@ -17,6 +17,11 @@ export default [
         process: 'readonly',
         console: 'readonly',
         URL: 'readonly',
+        document: 'readonly',
+        window: 'readonly',
+        getComputedStyle: 'readonly',
+        requestAnimationFrame: 'readonly',
+        performance: 'readonly',
       },
     },
     rules: {

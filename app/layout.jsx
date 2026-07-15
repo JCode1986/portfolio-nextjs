@@ -18,7 +18,7 @@ export const metadata = {
 	metadataBase: new URL(siteUrl),
 	title: 'Joseph Hangarter - Frontend Developer',
 	description:
-		'Welcome to my portfolio! I am a passionate frontend developer specializing in creating beautiful, responsive, and user-centric web applications. With expertise in modern JavaScript frameworks and UI/UX principles, I transform designs into seamless interactive experiences.',
+		'Frontend developer portfolio for Joseph Hangarter, focused on React, Next.js, polished UI, responsive systems, accessibility, and performance-minded product interfaces.',
 	keywords: [
 		'Frontend Developer',
 		'Web Developer',
@@ -40,7 +40,7 @@ export const metadata = {
 	creator: 'Joseph Hangarter',
 	openGraph: {
 		title: 'Joseph Hangarter - Frontend Developer Portfolio',
-		description: 'Passionate frontend developer crafting beautiful and interactive web experiences. Explore my projects and frontend development expertise.',
+		description: 'Frontend developer crafting fast, polished React and Next.js interfaces for product teams.',
 		url: siteUrl,
 		siteName: 'Joseph Hangarter - Portfolio',
 		images: [
@@ -57,7 +57,7 @@ export const metadata = {
 	twitter: {
 		card: 'summary_large_image',
 		title: 'Joseph Hangarter - Frontend Developer',
-		description: 'Passionate frontend developer crafting beautiful and interactive web experiences. Explore my projects and frontend development expertise.',
+		description: 'Frontend developer crafting fast, polished React and Next.js interfaces for product teams.',
 		images: ['/jc-profile.jpg'],
 	},
 	robots: {

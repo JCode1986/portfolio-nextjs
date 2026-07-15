@@ -16,11 +16,12 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
 	metadataBase: new URL(siteUrl),
-	title: 'Joseph Hangarter - Frontend Developer',
+	title: 'Joseph Hangarter | Full-Stack Engineer',
 	description:
-		'Frontend developer portfolio for Joseph Hangarter, focused on React, Next.js, polished UI, responsive systems, accessibility, and performance-minded product interfaces.',
+		'Product-focused full-stack engineer specializing in React, Next.js, responsive interfaces, secure application workflows, and production-ready web products.',
 	keywords: [
-		'Frontend Developer',
+		'Full-Stack Developer',
+		'Full-Stack Engineer',
 		'Web Developer',
 		'React Developer',
 		'Next.js',
@@ -39,8 +40,8 @@ export const metadata = {
 	authors: [{ name: 'Joseph Hangarter' }],
 	creator: 'Joseph Hangarter',
 	openGraph: {
-		title: 'Joseph Hangarter - Frontend Developer Portfolio',
-		description: 'Frontend developer crafting fast, polished React and Next.js interfaces for product teams.',
+		title: 'Joseph Hangarter | Full-Stack Engineer',
+		description: 'Product-focused full-stack engineer specializing in React, Next.js, responsive interfaces, secure workflows, and web products.',
 		url: siteUrl,
 		siteName: 'Joseph Hangarter - Portfolio',
 		images: [
@@ -48,7 +49,7 @@ export const metadata = {
 				url: '/jc-profile.jpg',
 				width: 400,
 				height: 400,
-				alt: 'Joseph Hangarter - Frontend Developer Portfolio',
+				alt: 'Joseph Hangarter - Full-Stack Engineer Portfolio',
 			},
 		],
 		locale: 'en_US',
@@ -56,8 +57,8 @@ export const metadata = {
 	},
 	twitter: {
 		card: 'summary_large_image',
-		title: 'Joseph Hangarter - Frontend Developer',
-		description: 'Frontend developer crafting fast, polished React and Next.js interfaces for product teams.',
+		title: 'Joseph Hangarter | Full-Stack Engineer',
+		description: 'Product-focused full-stack engineer specializing in React, Next.js, responsive interfaces, secure workflows, and web products.',
 		images: ['/jc-profile.jpg'],
 	},
 	robots: {

@@ -1,9 +1,11 @@
 import Link from 'next/link';
+import { site } from '@/lib/content';
 
 export default function Navigation() {
   const links = [
-    { href: '/#joseph', label: 'Joseph' },
-    { href: '/#projects', label: 'Projects' },
+    { href: '/#work', label: 'Work' },
+    { href: '/#experience', label: 'Experience' },
+    { href: '/#about', label: 'About' },
     { href: '/#skills', label: 'Skills' },
     { href: '/#contact', label: 'Contact' },
   ];
@@ -16,12 +18,15 @@ export default function Navigation() {
         </Link>
 
         <div className="hidden items-center gap-6 md:flex">
-          {links.slice(1).map((link) => (
+          {links.map((link) => (
             <Link key={link.href} href={link.href} className="transition-colors hover:text-cyan-300">
               {link.label}
             </Link>
           ))}
-          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="rounded-md bg-cyan-300 px-3 py-1.5 font-semibold text-slate-950 transition hover:bg-white">
+          <a href={site.githubUrl} target="_blank" rel="noreferrer" aria-label="View Joseph Hangarter on GitHub" className="transition-colors hover:text-cyan-300">
+            GitHub
+          </a>
+          <a href={site.resumeUrl} target="_blank" rel="noreferrer" className="rounded-md bg-cyan-300 px-3 py-1.5 font-semibold text-slate-950 transition hover:bg-white">
             Resume
           </a>
         </div>
@@ -37,12 +42,15 @@ export default function Navigation() {
             </svg>
           </summary>
           <div className="absolute right-0 mt-2 w-44 rounded-lg border border-slate-800 bg-slate-950 p-2 shadow-lg">
-            {links.slice(1).map((link) => (
+            {links.map((link) => (
               <Link key={link.href} href={link.href} className="block rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-cyan-300">
                 {link.label}
               </Link>
             ))}
-            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="block rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-cyan-300">
+            <a href={site.githubUrl} target="_blank" rel="noreferrer" className="block rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-cyan-300">
+              GitHub
+            </a>
+            <a href={site.resumeUrl} target="_blank" rel="noreferrer" className="block rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-cyan-300">
               Resume
             </a>
           </div>

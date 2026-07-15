@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">WhereKeep dashboard placeholder</title>
+  <desc id="desc">Abstract dashboard layout for a household inventory product.</desc>
+  <rect width="1200" height="760" fill="#07111f"/>
+  <rect x="72" y="72" width="1056" height="616" rx="28" fill="#0f172a" stroke="#1e293b" stroke-width="2"/>
+  <rect x="112" y="112" width="250" height="536" rx="20" fill="#111c2e"/>
+  <circle cx="152" cy="152" r="16" fill="#22d3ee"/>
+  <rect x="184" y="140" width="118" height="16" rx="8" fill="#e2e8f0"/>
+  <rect x="132" y="212" width="176" height="38" rx="12" fill="#1e293b"/>
+  <rect x="132" y="270" width="156" height="38" rx="12" fill="#1e293b"/>
+  <rect x="132" y="328" width="196" height="38" rx="12" fill="#164e63"/>
+  <rect x="402" y="112" width="686" height="88" rx="22" fill="#111c2e"/>
+  <rect x="438" y="140" width="268" height="18" rx="9" fill="#f8fafc"/>
+  <rect x="438" y="170" width="388" height="12" rx="6" fill="#64748b"/>
+  <rect x="876" y="138" width="160" height="34" rx="17" fill="#22d3ee"/>
+  <rect x="402" y="232" width="210" height="150" rx="22" fill="#0e7490"/>
+  <rect x="644" y="232" width="210" height="150" rx="22" fill="#2563eb"/>
+  <rect x="878" y="232" width="210" height="150" rx="22" fill="#7c3aed"/>
+  <rect x="402" y="418" width="686" height="230" rx="22" fill="#111c2e"/>
+  <rect x="438" y="456" width="592" height="16" rx="8" fill="#334155"/>
+  <rect x="438" y="502" width="420" height="16" rx="8" fill="#334155"/>
+  <rect x="438" y="548" width="510" height="16" rx="8" fill="#334155"/>
+  <rect x="438" y="594" width="360" height="16" rx="8" fill="#334155"/>
+</svg>

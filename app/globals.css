@@ -25,17 +25,6 @@ section[id] {
   }
 }
 
-@keyframes bounce-lite {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(0.5rem);
-  }
-}
-
 @keyframes grid-drift {
   from {
     background-position: 0 0, 0 0;
@@ -59,28 +48,6 @@ section[id] {
   }
 }
 
-@keyframes border-orbit {
-  from {
-    transform: rotate(0deg) scale(1.03);
-  }
-
-  to {
-    transform: rotate(360deg) scale(1.03);
-  }
-}
-
-@keyframes line-in {
-  from {
-    opacity: 0;
-    transform: translateX(-0.75rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 @keyframes card-in {
   from {
     opacity: 0;
@@ -93,22 +60,9 @@ section[id] {
   }
 }
 
-@keyframes gradient-pan {
-  from {
-    background-position: 0% 50%;
-  }
-
-  to {
-    background-position: 100% 50%;
-  }
-}
-
 .animate-fade-in-up {
   animation: fade-in-up 600ms ease-out both;
-}
-
-.animate-bounce-lite {
-  animation: bounce-lite 1.8s ease-in-out infinite;
+  animation-delay: var(--delay, 0ms);
 }
 
 .hero-surface {
@@ -134,47 +88,16 @@ section[id] {
   animation: spotlight-pan 7s ease-in-out infinite;
 }
 
-.profile-orbit::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: conic-gradient(from 0deg, transparent, rgba(34, 211, 238, 0.65), transparent, rgba(168, 85, 247, 0.55), transparent);
-  filter: blur(18px);
-  opacity: 0.65;
-  animation: border-orbit 11s linear infinite;
-}
-
-.skill-line {
-  animation: line-in 520ms ease-out both;
-  animation-delay: var(--delay, 0ms);
-}
-
 .reveal-card,
-.project-card {
+.project-panel {
   animation: card-in 560ms ease-out both;
   animation-delay: var(--delay, 0ms);
 }
 
-.animated-bar {
-  background-size: 180% 100%;
-  animation: gradient-pan 2.8s ease-in-out infinite alternate;
-}
-
-.project-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(120deg, transparent 35%, rgba(255, 255, 255, 0.48), transparent 65%);
-  opacity: 0;
-  transform: translateX(-35%);
-  transition: opacity 300ms ease, transform 650ms ease;
-}
-
-.project-card:hover::after {
-  opacity: 1;
-  transform: translateX(35%);
+@supports (text-wrap: balance) {
+  .text-balance {
+    text-wrap: balance;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

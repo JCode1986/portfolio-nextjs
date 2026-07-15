@@ -15,8 +15,18 @@ export async function generateMetadata({ params }) {
   }
 
   const title = `${project.title} | Joseph Hangarter`;
-  const description = project.description;
+  const description = project.seoDescription || project.description;
   const url = `${site.siteUrl}/work/${project.slug}`;
+  const image = project.heroImage
+    ? [
+        {
+          url: project.heroImage,
+          width: 1200,
+          height: 760,
+          alt: project.imageAlt,
+        },
+      ]
+    : undefined;
 
   return {
     title,
@@ -29,21 +39,14 @@ export async function generateMetadata({ params }) {
       description,
       url,
       siteName: 'Joseph Hangarter Portfolio',
-      images: [
-        {
-          url: project.heroImage,
-          width: 1200,
-          height: 760,
-          alt: project.imageAlt,
-        },
-      ],
+      images: image,
       type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [project.heroImage],
+      images: project.heroImage ? [project.heroImage] : undefined,
     },
   };
 }

@@ -8,6 +8,11 @@ function easeOutCubic(progress) {
 }
 
 function animateScrollTo(top) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.scrollTo(0, top);
+    return;
+  }
+
   const start = window.scrollY;
   const distance = top - start;
   const startTime = performance.now();
@@ -54,13 +59,17 @@ function getHash(href) {
   }
 }
 
-export default function SmoothAnchor({ href, children, className, target, rel, ariaLabel }) {
+export default function SmoothAnchor({ href, children, className, target, rel, ariaLabel, onNavigate }) {
   function handleClick(event) {
     const hash = getHash(href);
 
-    if (!hash || hash === '#') return;
+    if (!hash || hash === '#') {
+      onNavigate?.();
+      return;
+    }
 
     event.preventDefault();
+    onNavigate?.();
 
     if (window.location.pathname !== '/') {
       window.sessionStorage.setItem(pendingHashKey, hash);

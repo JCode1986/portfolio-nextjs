@@ -1,54 +1,53 @@
-'use client';
-
 import Link from 'next/link';
-import { useState } from 'react';
 
 export default function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
+  const links = [
+    { href: '/#joseph', label: 'Joseph' },
+    { href: '/#projects', label: 'Projects' },
+    { href: '/#skills', label: 'Skills' },
+    { href: '/#contact', label: 'Contact' },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 shadow-sm h-0">
-      <nav className="mx-auto flex items-center justify-center">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 shadow-sm backdrop-blur">
+      <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 text-sm font-medium text-gray-800">
+        <Link href="/#joseph" className="font-semibold text-gray-950">
+          Joseph Hangarter
+        </Link>
 
-        <div className={`hidden md:flex justify-center space-x-6 text-sm font-medium bg-white p-4 w-full shadow transition-all duration-300 ease-in-out`}>
-          <Link href="/#joseph" className="hover:text-blue-600">Joseph</Link>
-          <Link href="/#projects" className="hover:text-blue-600">Projects</Link>
-          <Link href="/#skills" className="hover:text-blue-600">Skills</Link>
-          {/* <Link href="/#about" className="hover:text-blue-600">About Me</Link> */}
-          <Link href="/#contact" className="hover:text-blue-600">Contact</Link>
-          <a href="/resume.pdf" target="_blank" className="hover:text-blue-600">Resume</a>
+        <div className="hidden items-center gap-6 md:flex">
+          {links.slice(1).map((link) => (
+            <Link key={link.href} href={link.href} className="transition-colors hover:text-blue-600">
+              {link.label}
+            </Link>
+          ))}
+          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="transition-colors hover:text-blue-600">
+            Resume
+          </a>
         </div>
 
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden focus:outline-none"
-          aria-label="Toggle Menu"
-        >
-          <svg
-            className="w-6 h-6 text-gray-800 dark:text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {isOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+        <details className="group relative md:hidden">
+          <summary className="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-md border border-gray-200 text-gray-800">
+            <span className="sr-only">Toggle menu</span>
+            <svg className="h-5 w-5 group-open:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg className="hidden h-5 w-5 group-open:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </summary>
+          <div className="absolute right-0 mt-2 w-44 rounded-lg border border-gray-200 bg-white p-2 shadow-lg">
+            {links.slice(1).map((link) => (
+              <Link key={link.href} href={link.href} className="block rounded-md px-3 py-2 hover:bg-gray-50 hover:text-blue-600">
+                {link.label}
+              </Link>
+            ))}
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="block rounded-md px-3 py-2 hover:bg-gray-50 hover:text-blue-600">
+              Resume
+            </a>
+          </div>
+        </details>
       </nav>
-
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-900 px-4 pb-4 space-y-3 text-sm font-medium absolute right-0 max-w-[150px] pt-4 w-full top-[61px]">
-          <Link href="/#projects" className="block hover:text-blue-600">Projects</Link>
-          <Link href="/about" className="block hover:text-blue-600">About</Link>
-          <Link href="/contact" className="block hover:text-blue-600">Contact</Link>
-          <a href="/resume.pdf" target="_blank" className="block hover:text-blue-600">Resume</a>
-        </div>
-      )}
     </header>
   );
 }

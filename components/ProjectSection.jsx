@@ -1,65 +1,42 @@
-'use client';
-
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-
 const projects = [
-	{
-		title: 'E-commerce Dashboard',
-		description: 'A modern dashboard with dark mode, real-time charts, and responsive design',
-		image: '/laptop.jpg',
-		tags: ['React', 'TypeScript', 'Tailwind CSS', 'Chart.js'],
-	},
-	{
-		title: 'Social Media App',
-		description: 'Full-featured social platform with real-time messaging and notifications',
-		image: '/code.jpg',
-		tags: ['Next.js', 'Socket.io', 'Prisma', 'TailwindCSS'],
-	},
+  {
+    title: 'E-commerce Dashboard',
+    description: 'A modern dashboard with dark mode, real-time charts, and responsive design',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Chart.js'],
+  },
+  {
+    title: 'Social Media App',
+    description: 'Full-featured social platform with real-time messaging and notifications',
+    tags: ['Next.js', 'Socket.io', 'Prisma', 'TailwindCSS'],
+  },
 ];
 
 export default function ProjectsSection() {
-	return (
-		<section id="projects" className="my-20 px-4">
-			<div className="max-w-6xl mx-auto">
-				<motion.h2
-					initial={{ opacity: 0 }}
-					whileInView={{ opacity: 1 }}
-					viewport={{ once: true }}
-					className="text-3xl font-bold mb-12 text-center text-gray-900"
-				>
-					Featured Projects
-				</motion.h2>
+  return (
+    <section id="projects" className="px-4 py-20">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="mb-12 text-center text-3xl font-bold text-gray-900">Featured Projects</h2>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-					{projects.map((project, index) => (
-						<motion.div
-							key={index}
-							initial={{ opacity: 0, y: 20 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							transition={{ delay: index * 0.2 }}
-							className="group relative bg-white rounded-xl overflow-hidden backdrop-blur-sm border border-gray-200 shadow-lg"
-						>
-							<div className="aspect-video relative overflow-hidden">
-								<Image src={project.image} alt={project.title} fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
-								<div className="absolute inset-0 bg-gradient-to-t from-white via-white/0 to-transparent transition-transform duration-300 group-hover:scale-105" />
-							</div>
-							<div className="p-6">
-								<h3 className="text-xl font-bold mb-2 text-gray-900">{project.title}</h3>
-								<p className="text-gray-600 mb-4">{project.description}</p>
-								<div className="flex flex-wrap gap-2">
-									{project.tags.map((tag, i) => (
-										<span key={i} className="text-sm px-3 py-1 bg-blue-50 text-blue-700 rounded-full">
-											{tag}
-										</span>
-									))}
-								</div>
-							</div>
-						</motion.div>
-					))}
-				</div>
-			</div>
-		</section>
-	);
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <article
+              key={index}
+              className="group rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md"
+            >
+              <div className="mb-5 h-2 w-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
+              <h3 className="mb-2 text-xl font-bold text-gray-900">{project.title}</h3>
+              <p className="mb-4 text-gray-600">{project.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag, i) => (
+                  <span key={i} className="rounded-full bg-blue-50 px-3 py-1 text-sm text-blue-700">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

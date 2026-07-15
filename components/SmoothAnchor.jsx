@@ -2,15 +2,15 @@
 
 const pendingHashKey = 'portfolio-pending-scroll-hash';
 const scrollDurationMs = 750;
+let activeScrollFrame = null;
 
 function easeOutCubic(progress) {
   return 1 - Math.pow(1 - progress, 3);
 }
 
 function animateScrollTo(top) {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    window.scrollTo(0, top);
-    return;
+  if (activeScrollFrame) {
+    window.cancelAnimationFrame(activeScrollFrame);
   }
 
   const start = window.scrollY;
@@ -25,11 +25,14 @@ function animateScrollTo(top) {
     window.scrollTo(0, start + distance * easedProgress);
 
     if (progress < 1) {
-      requestAnimationFrame(step);
+      activeScrollFrame = requestAnimationFrame(step);
+      return;
     }
+
+    activeScrollFrame = null;
   }
 
-  requestAnimationFrame(step);
+  activeScrollFrame = requestAnimationFrame(step);
 }
 
 function scrollToHash(hash) {

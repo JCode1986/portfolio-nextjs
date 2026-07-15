@@ -17,8 +17,8 @@ export default function ProjectsSection() {
         <div className="space-y-8">
           {projects.map((project, index) => (
             <article key={project.slug} className="project-card group grid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-200/80 lg:grid-cols-[0.95fr_1.05fr]" style={{ '--delay': `${index * 120}ms` }}>
-              <div className="relative min-h-72 bg-slate-950">
-                <Image src={project.heroImage} alt={project.imageAlt} fill sizes="(max-width: 1024px) 100vw, 48vw" className="object-cover" />
+              <div className="relative aspect-[16/9] bg-slate-100 lg:aspect-auto lg:min-h-80">
+                <Image src={project.heroImage} alt={project.imageAlt} fill sizes="(max-width: 1024px) 100vw, 48vw" className="object-contain p-3" />
               </div>
               <div className="flex flex-col justify-center p-6 sm:p-8">
                 <p className="mb-3 text-sm font-bold uppercase tracking-[0.18em] text-blue-600">{project.category}</p>

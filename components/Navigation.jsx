@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { site } from '@/lib/content';
+import SmoothAnchor from '@/components/SmoothAnchor';
 
 export default function Navigation() {
   const links = [
@@ -13,15 +13,15 @@ export default function Navigation() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 shadow-sm backdrop-blur">
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 text-sm font-medium text-slate-200">
-        <Link href="/#joseph" className="font-semibold text-white">
+        <SmoothAnchor href="/#joseph" className="font-semibold text-white">
           Joseph Hangarter
-        </Link>
+        </SmoothAnchor>
 
         <div className="hidden items-center gap-6 md:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="transition-colors hover:text-cyan-300">
+            <SmoothAnchor key={link.href} href={link.href} className="transition-colors hover:text-cyan-300">
               {link.label}
-            </Link>
+            </SmoothAnchor>
           ))}
           <a href={site.githubUrl} target="_blank" rel="noreferrer" aria-label="View Joseph Hangarter on GitHub" className="transition-colors hover:text-cyan-300">
             GitHub
@@ -43,9 +43,9 @@ export default function Navigation() {
           </summary>
           <div className="absolute right-0 mt-2 w-44 rounded-lg border border-slate-800 bg-slate-950 p-2 shadow-lg">
             {links.map((link) => (
-              <Link key={link.href} href={link.href} className="block rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-cyan-300">
+              <SmoothAnchor key={link.href} href={link.href} className="block rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-cyan-300">
                 {link.label}
-              </Link>
+              </SmoothAnchor>
             ))}
             <a href={site.githubUrl} target="_blank" rel="noreferrer" className="block rounded-md px-3 py-2 text-slate-200 hover:bg-white/10 hover:text-cyan-300">
               GitHub

@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Joseph Hangarter Portfolio
 
-## Getting Started
+Personal portfolio for Joseph Hangarter, positioned around full-stack product development with React and Next.js.
 
-First, run the development server:
+Live site: https://joseph-hangarter-portfolio.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Focus
+
+- Product-focused full-stack engineering
+- React and Next.js specialization
+- Responsive interface design
+- Case-study driven project presentation
+- Accessible, SEO-friendly, static App Router pages
+
+## Featured Projects
+
+The public portfolio currently highlights two projects:
+
+- **WhereKeep** - full-stack household inventory SaaS product
+- **Leah Naidoo** - professional client website for an emerging legal professional
+
+Each project is powered by the shared data model in `lib/content.js` and renders through the reusable `/work/[slug]` case-study route.
+
+## Tech Stack
+
+- Next.js 16 App Router
+- React 19
+- Tailwind CSS 4
+- JavaScript / JSX
+- Vercel deployment
+- ESLint flat config
+
+## Project Structure
+
+```txt
+app/
+  page.jsx              Homepage
+  layout.jsx            Global metadata and layout
+  work/[slug]/page.jsx  Case-study route
+  sitemap.js            Generated sitemap
+  robots.js             Robots configuration
+components/
+  HeroSection.jsx
+  ProjectSection.jsx
+  ExperienceSection.jsx
+  AboutSection.jsx
+  HowIWorkSection.jsx
+  SkillsSection.jsx
+  ContactSection.jsx
+  CaseStudyPage.jsx
+  Footer.jsx
+lib/
+  content.js            Shared site, project, skill, and experience data
+public/
+  project-previews/     Optimized project screenshots
+  resume.pdf
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Development
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open `http://localhost:3000`.
 
-## Learn More
+## Validation
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+npm run build
+npm audit
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project targets Node `>=20.9.0` for Next.js 16 compatibility.
 
-## Deploy on Vercel
+Set `NEXT_PUBLIC_SITE_URL` in production if the canonical site URL changes. The default is:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```txt
+https://joseph-hangarter-portfolio.vercel.app
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Screenshot Assets
+
+The homepage and case-study pages use optimized screenshots from:
+
+- `public/project-previews/wherekeep.jpg`
+- `public/project-previews/leahnaidoo.jpg`
+
+Future optional additions:
+
+- WhereKeep dashboard and inventory workflow screenshots
+- Leah Naidoo mobile homepage and contact section screenshots

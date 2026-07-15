@@ -6,6 +6,9 @@ const qrCells = [
   104, 105, 108, 110, 112, 114, 116, 117, 118, 119, 120,
 ];
 const qrCellSet = new Set(qrCells);
+const qrGridCells = Array.from({ length: 121 });
+const editorControls = ['Destination', 'Foreground color', 'Background color', 'Logo upload'];
+const styleControls = ['Corner style', 'Pattern style', 'Size', 'SVG'];
 
 function QuickQrPreview({ compact = false }) {
   return (
@@ -20,7 +23,7 @@ function QuickQrPreview({ compact = false }) {
         </div>
 
         <div className="space-y-3">
-          {['Destination', 'Foreground color', 'Background color', 'Logo upload'].map((label, index) => (
+          {editorControls.map((label, index) => (
             <div key={label}>
               <div className="mb-1 flex items-center justify-between text-xs font-semibold text-slate-500">
                 <span>{label}</span>
@@ -33,7 +36,7 @@ function QuickQrPreview({ compact = false }) {
           ))}
 
           <div className="grid grid-cols-2 gap-2">
-            {['Corner style', 'Pattern style', 'Size', 'SVG'].map((label) => (
+            {styleControls.map((label) => (
               <div key={label} className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-600">
                 {label}
               </div>
@@ -50,7 +53,7 @@ function QuickQrPreview({ compact = false }) {
 
         <div className="my-5 flex flex-1 items-center justify-center">
           <div className="grid h-40 w-40 grid-cols-11 grid-rows-11 gap-1 rounded-2xl bg-white p-3 shadow-xl shadow-violet-200/70 sm:h-48 sm:w-48">
-            {Array.from({ length: 121 }).map((_, index) => (
+            {qrGridCells.map((_, index) => (
               <span key={index} className={`rounded-[0.18rem] ${qrCellSet.has(index) ? 'bg-slate-950' : 'bg-transparent'}`} />
             ))}
           </div>

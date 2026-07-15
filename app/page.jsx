@@ -9,7 +9,7 @@ import SkillsSection from "@/components/SkillsSection";
 
 export default async function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-slate-50 text-slate-900">
+    <main className="min-h-screen overflow-x-hidden bg-slate-950 text-white">
 		<HeroSection />
 		<ProjectsSection />
 		<ExperienceSection />

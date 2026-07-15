@@ -19,15 +19,15 @@ export const metadata = {
 	metadataBase: new URL(siteUrl),
 	title: 'Joseph Hangarter | Full-Stack Engineer',
 	description:
-		'Product-focused full-stack engineer specializing in React, Next.js, responsive interfaces, secure application workflows, and production-ready web products.',
+		'Product-focused full-stack engineer specializing in JavaScript, React, Next.js, responsive interfaces, payment workflows, and production-ready web products.',
 	keywords: [
 		'Full-Stack Developer',
 		'Full-Stack Engineer',
 		'Web Developer',
 		'React Developer',
 		'Next.js',
-		'TypeScript',
 		'JavaScript',
+		'TypeScript',
 		'UI/UX',
 		'Responsive Design',
 		'Web Animation',
@@ -42,7 +42,7 @@ export const metadata = {
 	creator: 'Joseph Hangarter',
 	openGraph: {
 		title: 'Joseph Hangarter | Full-Stack Engineer',
-		description: 'Product-focused full-stack engineer specializing in React, Next.js, responsive interfaces, secure workflows, and web products.',
+		description: 'Product-focused full-stack engineer specializing in JavaScript, React, Next.js, responsive interfaces, payment workflows, and production-ready web products.',
 		url: siteUrl,
 		siteName: 'Joseph Hangarter - Portfolio',
 		images: [
@@ -59,7 +59,7 @@ export const metadata = {
 	twitter: {
 		card: 'summary_large_image',
 		title: 'Joseph Hangarter | Full-Stack Engineer',
-		description: 'Product-focused full-stack engineer specializing in React, Next.js, responsive interfaces, secure workflows, and web products.',
+		description: 'Product-focused full-stack engineer specializing in JavaScript, React, Next.js, responsive interfaces, payment workflows, and production-ready web products.',
 		images: ['/jc-profile.jpg'],
 	},
 	robots: {

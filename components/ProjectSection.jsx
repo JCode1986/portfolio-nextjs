@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { projects } from '@/lib/content';
 import ProjectVisual from '@/components/ProjectVisual';
 
@@ -111,12 +110,12 @@ export default function ProjectsSection() {
                           {project.ctaPrimary}
                         </a>
                       ) : null}
-                      <Link
+                      <a
                         href={`/work/${project.slug}`}
                         className={`inline-flex min-h-12 items-center justify-center rounded-xl border bg-white/[0.03] px-5 py-3 font-bold transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${accent.secondary}`}
                       >
                         {project.ctaSecondary || 'Read Case Study'}
-                      </Link>
+                      </a>
                     </div>
                   </div>
 

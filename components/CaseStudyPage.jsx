@@ -161,14 +161,14 @@ export default function CaseStudyPage({ project }) {
 
         <ExtraCaseSections sections={project.caseStudySections} />
 
-        <Section title="Screenshot Assets">
+        {/* <Section title="Screenshot Assets">
           <div className="rounded-[1.35rem] border border-dashed border-white/20 bg-white/[0.04] p-5">
             <p className="font-bold text-white">Useful screenshots to add as the project asset set grows:</p>
             <div className="mt-4">
               <List items={project.screenshots} />
             </div>
           </div>
-        </Section>
+        </Section> */}
 
         {project.currentStatus || project.futureImprovements?.length ? (
           <Section title="Current Status and Future Improvements">

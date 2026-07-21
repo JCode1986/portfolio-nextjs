@@ -90,7 +90,7 @@ function CompositeImagePreview({ project, priority = false, compact = false }) {
 }
 
 export default function ProjectVisual({ project, priority = false, compact = false }) {
-  if (project.slug === 'quickqr') {
+  if (project.slug === 'quickqr' && !project.heroImage) {
     return <QuickQrPreview compact={compact} />;
   }
 
